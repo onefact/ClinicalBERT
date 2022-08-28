@@ -1,0 +1,25 @@
+project_name: "bert-pre-train"
+run_name: "default"
+
+data:
+  data_path: "/fsx/onefact/data/pretrain-data.pkl"
+
+model:
+  config_file: "/home/ubuntu/smarterdx/dataFiles/pretrained/bert_config.json"
+  max_length: 128
+
+run:
+  small_batch_size: 128
+  big_batch_size: 32
+  pin_memory: True
+  num_epochs: 40
+  learning_rate: 0.0001
+  betas: (0.9, 0.999)
+  weight_decay: .01
+  dropout: 0.1
+  optimizer: "adam"
+  scheduler: "linear_with_warmup"
+  save_state: True
+  cuda_deterministic: False
+  num_workers: 32
+  profile_path: "/home/ubuntu/smarterdx/dataFiles/bert_profile"
